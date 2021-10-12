@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   
-  include SessionHelper
+  include SessionsHelper
   include Pagy::Backend # Bootstrapの呼び出し
   
   private
