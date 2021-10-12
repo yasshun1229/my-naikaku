@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  def create
+  def create # ユーザ登録の処理
     @user = User.new(user_params)
     
     if @user.save
@@ -20,7 +20,7 @@ class UsersController < ApplicationController
   end
   
   def destroy # ユーザを削除する機能
-    find_user_id
+    @user = User.find(params[:id])
     @user.destroy
   end
   
