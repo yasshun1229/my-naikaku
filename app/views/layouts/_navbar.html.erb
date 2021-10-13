@@ -16,6 +16,10 @@
             <ul class="dropdown-menu dropdown-menu-end">
               <li class="dropdown-item"><%= link_to 'プロフィール', user_path(current_user), class: 'nav-link' %></li>
               <li class="dropdown-divider"></li>
+              <li class="dropdown-item"><%= link_to '新規作成', new_cabinet_path(current_user), class: 'nav-link' %></li>
+              <li class="dropdown-divider"></li>
+              <li class="dropdown-item"><%= link_to "作成した内閣一覧", cabinets_path(current_user), class: "nav-link" %></li>
+              <li class="dropdown-divider"></li>
               <li class="dropdown-item"><%= link_to "ログアウト", logout_path, method: :delete, class: "nav-link" %></li>
             </ul>
           </div>

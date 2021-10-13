@@ -1,0 +1,10 @@
+<h1><%= current_user.name %>さんの内閣一覧</h1>
+
+<ul>
+  <% @cabinets.each do |cabinet| %>
+    <li><%= link_to cabinet.id, cabinet %> : <%= cabinet.title_cabinet %></li>
+  <% end %>
+</ul>
+
+<%= link_to "新しい内閣を組閣", new_cabinet_path %>
+<%= link_to "ログアウト", logout_path, method: :delete %>
