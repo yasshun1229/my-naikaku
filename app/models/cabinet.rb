@@ -9,8 +9,8 @@ class Cabinet < ApplicationRecord
     validates :finance_minister_name # 財務大臣
     validates :comprehensive_minister_name # 総務大臣
     validates :economy_minister_name # 経済産業大臣
-    validates :education_minister_name # 文部科学大臣
     validates :welfare_minister_name # 厚生労働大臣
+    validates :education_minister_name # 文部科学大臣
     validates :diplomacy_minister_name # 外務大臣
     validates :defense_minister_name # 防衛大臣
     validates :agriculture_minister_name # 農林水産大臣

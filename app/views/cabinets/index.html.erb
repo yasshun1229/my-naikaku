@@ -2,9 +2,9 @@
 
 <ul>
   <% @cabinets.each do |cabinet| %>
-    <li><%= link_to cabinet.id, cabinet %> : <%= cabinet.title_cabinet %></li>
+    <li><%= link_to cabinet.id, cabinet %> : <%= cabinet.title_cabinet %>内閣</li>
+    <% if current_user == cabinet.user %>
+      <%= link_to "Delete", cabinet, method: :delete, data: { confirm: "本当に削除しますか？" }, class: 'btn btn-danger btn-sm' %>
+    <% end %>
   <% end %>
 </ul>
-
-<%= link_to "新しい内閣を組閣", new_cabinet_path %>
-<%= link_to "ログアウト", logout_path, method: :delete %>

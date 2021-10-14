@@ -7,6 +7,7 @@ class CabinetsController < ApplicationController
   end
   
   def show 
+    @cabinet = Cabinet.find(params[:id])
   end
   
   def new
@@ -25,13 +26,25 @@ class CabinetsController < ApplicationController
     end
   end
 
-  def update
-  end
-
   def edit
   end
 
+  def update
+    @cabinet = current_user.cabinets.find(params[:id])
+    
+    if @cabinet.update(cabinet_params)
+      flash[:success] = "#{@cabinet.title_cabinet} + は更新されました"
+      redirect_to @cabinet
+    else
+      flash.now[:danger] = "内閣の更新に失敗しました"
+      render :edit
+    end
+  end
+
   def destroy
+    @cabinet.destroy
+    flash[:success] = "内閣を削除しました"
+    redirect_back(fallback_location: root_path)
   end
   
   private

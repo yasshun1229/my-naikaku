@@ -1,2 +1,5 @@
-<h1>Cabinets#edit</h1>
-<p>Find me in app/views/cabinets/edit.html.erb</p>
+<h1 class="text-center"><%= @cabinet.title_cabinet %>内閣</h1>
+
+<%= render "form", cabinet: @cabinet %>
+
+<%= link_to '一覧に戻る', cabinets_path %>

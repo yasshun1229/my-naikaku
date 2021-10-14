@@ -1,0 +1,74 @@
+<h1 class="text-center"><%= @cabinet.title_cabinet %>内閣</h1>
+
+  <table class="table">
+    <tr>
+      <th>職名</th>
+      <th>氏名</th>
+    </tr>
+    <tr>
+      <td>内閣総理大臣</td>
+      <td><%= @cabinet.prime_minister_name %></td>
+    </tr>
+    <tr>
+      <td>内閣官房長官</td>
+      <td><%= @cabinet.chief_cabinet_secretary_name %></td>
+    </tr>
+    <tr>
+      <td>財務大臣</td>
+      <td><%= @cabinet.finance_minister_name %></td>
+    </tr>
+    <tr>
+      <td>総務大臣</td>
+      <td><%= @cabinet.comprehensive_minister_name %></td>
+    </tr>
+    <tr>
+      <td>経済産業大臣</td>
+      <td><%= @cabinet.economy_minister_name %></td>
+    </tr>
+    <tr>
+      <td>厚生労働大臣</td>
+      <td><%= @cabinet.welfare_minister_name %></td>
+    </tr>
+    <tr>
+      <td>文部科学大臣</td>
+      <td><%= @cabinet.education_minister_name %></td>
+    </tr>
+    <tr>
+      <td>外務大臣</td>
+      <td><%= @cabinet.diplomacy_minister_name %></td>
+    </tr>
+    <tr>
+      <td>防衛大臣</td>
+      <td><%= @cabinet.defense_minister_name %></td>
+    </tr>
+    <tr>
+      <td>農林水産大臣</td>
+      <td><%= @cabinet.agriculture_minister_name %></td>
+    </tr>
+    <tr>
+      <td>国土交通大臣</td>
+      <td><%= @cabinet.traffic_minister_name %></td>
+    </tr>
+    <tr>
+      <td>法務大臣</td>
+      <td><%= @cabinet.law_minister_name %></td>
+    </tr>
+    <tr>
+      <td>環境大臣</td>
+      <td><%= @cabinet.green_minister_name %></td>
+    </tr>
+    <tr>
+      <td>デジタル大臣</td>
+      <td><%= @cabinet.digital_minister_name %></td>
+    </tr>
+    <tr>
+      <td>復興大臣</td>
+      <td><%= @cabinet.reconstruction_minister_name %></td>
+    </tr>
+    <tr>
+      <td>国家公安委員長</td>
+      <td><%= @cabinet.public_security_minister_name %></td>
+    </tr>
+  </table>
+  
+  <%= link_to "編集する", edit_cabinet_path(current_user), class: 'btn btn-sm', style: "background-color: #fff;" %>

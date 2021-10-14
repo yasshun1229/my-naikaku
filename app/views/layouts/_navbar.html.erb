@@ -10,13 +10,11 @@
         <% if logged_in? %>
           <div class="btn-group">
             <ul class="navbar-nav">
-              <li class="ms-3"><%= link_to 'Users', users_path, class: 'nav-link' %></li>
+              <li class="ms-3"><%= link_to '組閣', new_cabinet_path(current_user) , class: 'nav-link' %></li>
             </ul>
             <button type="button" class="btn dropdown-toggle" style="background-color: #eb6101;" data-bs-toggle="dropdown" aria-expanded="false"><%= current_user.name %></button>
             <ul class="dropdown-menu dropdown-menu-end">
-              <li class="dropdown-item"><%= link_to 'プロフィール', user_path(current_user), class: 'nav-link' %></li>
-              <li class="dropdown-divider"></li>
-              <li class="dropdown-item"><%= link_to '新規作成', new_cabinet_path(current_user), class: 'nav-link' %></li>
+              <li class="dropdown-item"><%= link_to '組閣', new_cabinet_path(current_user), class: 'nav-link' %></li>
               <li class="dropdown-divider"></li>
               <li class="dropdown-item"><%= link_to "作成した内閣一覧", cabinets_path(current_user), class: "nav-link" %></li>
               <li class="dropdown-divider"></li>
