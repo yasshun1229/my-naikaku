@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: "toppages#index" # トップページのルーティング
+  root to: "cabinets#index" # トップページのルーティング
   
   get "login", to: "sessions#new" # ログインページのURIパターンを"login"にする設定
   post "login", to: "sessions#create" # ログインページのURIパターンを"login"にする設定

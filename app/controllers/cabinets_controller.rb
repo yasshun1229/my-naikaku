@@ -1,5 +1,5 @@
 class CabinetsController < ApplicationController
-  before_action :require_user_logged_in # ログインしていなければダメ
+  before_action :require_user_logged_in# ログインしていなければダメ
   before_action :correct_user, only: [:edit, :update, :destroy] # 自分しかダメ
   
   def index

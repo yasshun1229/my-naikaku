@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :require_user_logged_in, except: [:new, :create] # ログインしていなければダメ
+  before_action :require_user_logged_in, except: [:new, :create] # ログインしていなければダメ exceptはonlyの逆
   before_action :correct_user, only: [:edit, :update, :destroy] # 自分しかダメ
   
   def show # ユーザの詳細ページのルーティング（今は無いが、将来的には必要になるので書いている。）
