@@ -1,13 +1,13 @@
 class CabinetsController < ApplicationController
-  before_action :require_user_logged_in# ログインしていなければダメ
+  before_action :require_user_logged_in # ログインしていなければダメ
   before_action :correct_user, only: [:edit, :update, :destroy] # 自分しかダメ
+  before_action :cabinet_find, only: [:show]
   
   def index
     @cabinets = current_user.cabinets.order(id: :desc)
   end
   
   def show 
-    @cabinet = Cabinet.find(params[:id])
   end
   
   def new
@@ -16,7 +16,7 @@ class CabinetsController < ApplicationController
 
   def create
     @cabinet = current_user.cabinets.build(cabinet_params)
-    if @cabinet.save
+    if @cabinet.sav
       flash[:success] = "組閣しました"
       redirect_to cabinets_path
     else
@@ -27,13 +27,14 @@ class CabinetsController < ApplicationController
   end
 
   def edit
+    @cabinet = Cabinet.find(params[:id])
   end
 
   def update
     @cabinet = current_user.cabinets.find(params[:id])
     
     if @cabinet.update(cabinet_params)
-      flash[:success] = "#{@cabinet.title_cabinet} + は更新されました"
+      flash[:success] = "#{@cabinet.title_cabinet} は更新されました"
       redirect_to @cabinet
     else
       flash.now[:danger] = "内閣の更新に失敗しました"
@@ -54,9 +55,13 @@ class CabinetsController < ApplicationController
   end
   
   def correct_user
-    @cabinet = current_user.cabinets.find_by(id: params[:id])
+    @cabinet = current_user.cabinets.find_by(id: params[:id]) # id:ログイン中ユーザのcabinetsテーブルから
     unless @cabinet
       redirect_to root_path
     end
+  end
+  
+  def cabinet_find
+    @cabinet = Cabinet.find(params[:id])
   end
 end

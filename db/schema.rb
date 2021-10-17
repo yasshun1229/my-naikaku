@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_12_093727) do
+ActiveRecord::Schema.define(version: 2021_10_15_065803) do
 
   create_table "cabinets", charset: "utf8mb4", force: :cascade do |t|
     t.string "title_cabinet"
@@ -36,6 +36,16 @@ ActiveRecord::Schema.define(version: 2021_10_12_093727) do
     t.index ["user_id"], name: "index_cabinets_on_user_id"
   end
 
+  create_table "favorites", charset: "utf8mb4", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "cabinet_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["cabinet_id", "user_id"], name: "index_favorites_on_cabinet_id_and_user_id", unique: true
+    t.index ["cabinet_id"], name: "index_favorites_on_cabinet_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
+
   create_table "users", charset: "utf8mb4", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -45,4 +55,6 @@ ActiveRecord::Schema.define(version: 2021_10_12_093727) do
   end
 
   add_foreign_key "cabinets", "users"
+  add_foreign_key "favorites", "cabinets"
+  add_foreign_key "favorites", "users"
 end

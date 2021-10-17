@@ -1,0 +1,13 @@
+  <% if current_user.liking?(cabinet) %> <!--もし、ログイン中のユーザがお気に入り登録したら、-->
+    <%= form_with(model: current_user.favorites.find_by(cabinet_id: cabinet.id), method: :delete) do |f| %> <!--お気に入り解除できるものを取り出す-->
+      <%= hidden_field_tag :cabinet_id, cabinet.id %> <!--<input type="hidden" name="cabinet_id" value="cabinet.id">の生成 -->
+      <%= f.submit 'Unlike', class: 'btn btn-success btn-sm text-light' %> <!--Unlikeボタンを表示する-->
+    <% end %>
+  <% else %> <!--違ければ-->
+    <%= form_with(model: current_user.favorites.build) do |f| %> <!--お気に入り登録中のCabinetではなかったら、-->
+      <%= hidden_field_tag :cabinet_id, cabinet.id %> <!--<input type="hidden" name="cabinet_id" value="cabinet.id">の生成 -->
+      <%= f.submit 'Like', class: 'btn btn-warning btn-sm text-light' %> <!--Likeボタンを表示する-->
+    <% end %>
+  <% end %>
+
+<!---->
