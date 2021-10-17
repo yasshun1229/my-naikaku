@@ -6,11 +6,13 @@ Rails.application.routes.draw do
   delete "logout", to: "sessions#destroy"
   
   get "signup", to: "users#new" # ユーザ登録ページのURLパターンを"signup"にする設定
-  resources :users, only: [:show, :create] do
+  resources :users, only: [:index, :show, :create] do
     member do # idが含まれるURLの生成（ユーザの特定が必要）
       get :likes
     end
   end
+  
+  get "signup", to: "users#new"
   
   resources :cabinets
   resources :favorites, only: [:create, :destroy]

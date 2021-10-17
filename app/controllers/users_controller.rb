@@ -1,9 +1,10 @@
 class UsersController < ApplicationController
-  before_action :require_user_logged_in, except: [:new, :create] # ログインしていなければダメ exceptはonlyの逆
+  before_action :require_user_logged_in, only: [:edit, :update, :destroy, :likes] # ログインしていなければダメ
   before_action :correct_user, only: [:edit, :update, :destroy] # 自分しかダメ
   
   def show # ユーザの詳細ページのルーティング（今は無いが、将来的には必要になるので書いている。）
     @user = User.find(params[:id])
+    @pagy, @cabinets = pagy(@user.cabinets.order(id: :desc))
   end
 
   def new # ユーザ登録用フォームのルーティング
@@ -32,6 +33,11 @@ class UsersController < ApplicationController
     @user.destroy
     flash[:success] = "アカウントを削除しました"
     redirect_back(fallback_location: root_path)
+  end
+  
+  def likes
+    @user = User.find(params[:id])
+    @pagy, @likings = pagy(@user.likings)
   end
   
   private

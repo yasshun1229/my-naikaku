@@ -49,3 +49,5 @@ group :production do
 end
 
 gem "pagy"
+
+gem 'pry-byebug', group: :development

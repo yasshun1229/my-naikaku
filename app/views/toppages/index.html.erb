@@ -2,7 +2,9 @@
     <div>
       <%= link_to cabinet.title_cabinet + "内閣", cabinet %>
     </div>
-    <div>
-      <%= render "favorites/like_button", cabinet: cabinet %>
-    </div>
+    <% if logged_in? %>
+      <div>
+        <%= render "favorites/like_button", cabinet: cabinet %>
+      </div>
+    <% end %>
   <% end %>

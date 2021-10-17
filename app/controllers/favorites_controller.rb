@@ -10,7 +10,7 @@ class FavoritesController < ApplicationController
   
   def create
     cabinet = Cabinet.find(params[:cabinet_id])
-    current_user.like(cabinet)
+    current_user.like(cabinet) # ログイン中のユーザがcabinetをlikeしました
     flash[:success] = "Cabinetをお気に入り登録しました"
     redirect_to current_user
   end
