@@ -21,4 +21,6 @@ class Cabinet < ApplicationRecord
     validates :reconstruction_minister_name # 復興大臣
     validates :public_security_minister_name # 国家公安委員長
   end
+  
+  has_many :favorites, dependent: :destroy
 end

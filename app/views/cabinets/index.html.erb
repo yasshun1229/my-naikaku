@@ -1,12 +1,12 @@
 <h1><%= current_user.name %>さんの内閣一覧</h1>
 
-<ul>
   <% @cabinets.each do |cabinet| %>
-    <li><%= link_to cabinet.id, cabinet %> : <%= cabinet.title_cabinet %>内閣</li>
+  <div>
+    <%= link_to cabinet.title_cabinet + "内閣" , cabinet %>
+  </div>
     <% if current_user == cabinet.user %>
+    <div>
       <%= link_to "Delete", cabinet, method: :delete, data: { confirm: "本当に削除しますか？" }, class: 'btn btn-danger btn-sm' %>
+    </div>
     <% end %>
   <% end %>
-</ul>
-
-<%= link_to "お気に入りの内閣", likes_user_path %>

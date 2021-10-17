@@ -23,7 +23,4 @@ class User < ApplicationRecord
   def liking?(other_cabinet)
     self.likings.include?(other_cabinet) # お気に入り登録しているcabinetを取得し、お気に入りではないcabinetが含まれていないか確認
   end
-  
-  # def feed_cabinets
-  #   Cabinets.where(user_id: self.likes)
 end

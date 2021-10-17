@@ -16,7 +16,7 @@ class CabinetsController < ApplicationController
 
   def create
     @cabinet = current_user.cabinets.build(cabinet_params)
-    if @cabinet.sav
+    if @cabinet.save
       flash[:success] = "組閣しました"
       redirect_to cabinets_path
     else
